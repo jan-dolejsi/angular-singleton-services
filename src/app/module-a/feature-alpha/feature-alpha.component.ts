@@ -1,7 +1,7 @@
 import { Component, OnInit, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HelloService } from '../hello.service';
-import { DataCacheService } from 'ngx-my-lib';
+import { DataTransformService } from 'ngx-my-lib';
 
 @Component({
   selector: 'mfe-feature-alpha',
@@ -15,11 +15,11 @@ export class FeatureAlphaComponent implements OnInit {
   readonly data = signal(0);
 
   constructor(private readonly helloService: HelloService,
-    private readonly dataCacheService: DataCacheService) {
+    private readonly dataTransformService: DataTransformService) {
     this.greeting = helloService.hello('Alpha');
   }
 
   ngOnInit(): void {
-    this.data.set(this.dataCacheService.getData());
+    this.data.set(this.dataTransformService.transform());
   }
 }

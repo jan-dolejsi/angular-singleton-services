@@ -98,3 +98,9 @@ From now on, any modification to the component library shall be recompiled using
 ```bash
 npx ng build ngx-my-lib && npx ng serve mfe
 ```
+
+## Add a data transform service that depends on the data cache service
+
+```bash
+npx ng generate service data-transform --project ngx-my-lib --skip-tests
+```

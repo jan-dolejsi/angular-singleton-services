@@ -3,3 +3,4 @@
  */
 
 export * from './lib/data-cache.service';
+export * from './lib/data-transform.service';
