@@ -76,3 +76,25 @@ npx ng generate service module-a/hello --project mfe --skip-tests
 Inject the service into both the alpha and beta component and print hello world on the componet html.
 
 Count how many times the `HelloService` gets created.
+
+## Split the MFE module to MFE and Web Component library
+
+For re-usability, you may want to keep your (Angular) web components in a separate library project (which you could also publish as such in NPM).
+
+```bash
+npx ng generate library ngx-my-lib --standalone --prefix mylib
+```
+
+Delete the component and service that was created inside `projects/ngx-my-lib` (and from the `public-api.ts`).
+
+Add service to the component library
+
+```bash
+npx ng generate service data-cache --project ngx-my-lib --skip-tests
+```
+
+From now on, any modification to the component library shall be recompiled using:
+
+```bash
+npx ng build ngx-my-lib && npx ng serve mfe
+```
